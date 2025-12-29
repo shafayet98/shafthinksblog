@@ -1,0 +1,58 @@
+<section class="featured-posts">
+  <div class="featured-posts__inner">
+
+    {% if module.heading %}
+      <h2 class="featured-posts__title">{{ module.heading }}</h2>
+    {% endif %}
+
+    {% if module.intro %}
+      <div class="featured-posts__intro">{{ module.intro }}</div>
+    {% endif %}
+
+    {% set limit = module.post_count|default(6) %}
+    {% set posts = blog_recent_posts("default", limit) %}
+
+    <div class="featured-posts__grid">
+      {% for post in posts %}
+        <article class="post-card">
+          <a class="post-card__link" href="{{ post.absolute_url }}">
+            {% if post.featured_image %}
+              <img class="post-card__img" src="{{ post.featured_image }}" alt="{{ post.featured_image_alt_text|default(post.name) }}">
+            {% endif %}
+
+            <div class="post-card__body">
+              <h3 class="post-card__h">{{ post.name }}</h3>
+
+              {% if post.publish_date %}
+                <p class="post-card__meta">{{ post.publish_date|datetimeformat('%b %d, %Y') }}</p>
+              {% endif %}
+
+              {% if post.meta_description %}
+                <p class="post-card__excerpt">{{ post.meta_description }}</p>
+              {% endif %}
+
+              {% if module.show_tags and post.tag_list %}
+                <div class="post-card__tags">
+                  {% for t in post.tag_list %}
+                    <span class="post-card__tag">{{ t }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if module.cta_link.url.href and module.cta_text %}
+      <div class="featured-posts__cta">
+        <a class="btn" href="{{ module.cta_link.url.href }}"
+          {% if module.cta_link.open_in_new_tab %}target="_blank"{% endif %}
+          {% if module.cta_link.no_follow %}rel="nofollow"{% endif %}>
+          {{ module.cta_text }}
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</section>

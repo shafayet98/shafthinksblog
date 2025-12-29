@@ -1,0 +1,45 @@
+{% set bg = module.background_color.color %}
+{% set bg_opacity = (module.background_color.opacity|default(100)) / 100 %}
+{% set pt = module.padding_top|default(64) %}
+{% set pb = module.padding_bottom|default(64) %}
+
+<section
+  class="hero hero--{{ module.layout }} hero--align-{{ module.alignment }} hero--btn-{{ module.button_style }}"
+  style="background-color: rgba({{ bg|convert_rgb }}, {{ bg_opacity }}); padding-top: {{ pt }}px; padding-bottom: {{ pb }}px;"
+>
+  <div class="hero__inner">
+    <div class="hero__content">
+      {% if module.heading %}
+        <h1 class="hero__title">{{ module.heading }}</h1>
+      {% endif %}
+
+      {% if module.content %}
+        <div class="hero__body">{{ module.content }}</div>
+      {% endif %}
+
+      {% if module.primary_cta_text and module.primary_cta_link.url.href %}
+        <a
+          class="hero__cta"
+          href="{{ module.primary_cta_link.url.href }}"
+          {% if module.primary_cta_link.open_in_new_tab %}target="_blank"{% endif %}
+          {% if module.primary_cta_link.no_follow %}rel="nofollow"{% endif %}
+        >
+          {{ module.primary_cta_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="hero__media">
+      {% if module.image.src %}
+        <img
+          class="hero__img"
+          src="{{ module.image.src }}"
+          alt="{{ module.image.alt|default('') }}"
+          loading="lazy"
+        />
+      {% else %}
+        <div class="hero__placeholder">Add an image in the module settings</div>
+      {% endif %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+[
+    {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Ready to build something great?"
+    },
+    {
+        "name": "text",
+        "label": "Text",
+        "type": "richtext",
+        "default": "<p>Tell us what you need and we’ll get back to you quickly.</p>"
+    },
+    {
+        "name": "button_text",
+        "label": "Button text",
+        "type": "text",
+        "default": "Contact us"
+    },
+    {
+        "name": "button_link",
+        "label": "Button link",
+        "type": "link"
+    },
+    {
+        "name": "style",
+        "label": "Style",
+        "type": "choice",
+        "choices": [
+            [
+                "light",
+                "Light"
+            ],
+            [
+                "dark",
+                "Dark"
+            ]
+        ],
+        "default": "light"
+    }
+]

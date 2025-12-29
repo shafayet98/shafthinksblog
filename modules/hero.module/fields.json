@@ -1,0 +1,99 @@
+[
+    {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Build fast, conversion-focused websites"
+    },
+    {
+        "name": "content",
+        "label": "Body",
+        "type": "richtext",
+        "default": "<p>Reusable modules, clean templates, and performance-first front-end.</p>"
+    },
+    {
+        "name": "primary_cta_text",
+        "label": "Primary CTA text",
+        "type": "text",
+        "default": "Get a quote"
+    },
+    {
+        "name": "primary_cta_link",
+        "label": "Primary CTA link",
+        "type": "link"
+    },
+    {
+        "name": "image",
+        "label": "Image",
+        "type": "image"
+    },
+    {
+        "name": "layout",
+        "label": "Layout",
+        "type": "choice",
+        "choices": [
+            [
+                "left",
+                "Text left, image right"
+            ],
+            [
+                "right",
+                "Text right, image left"
+            ]
+        ],
+        "default": "left"
+    },
+    {
+        "name": "alignment",
+        "label": "Text alignment",
+        "type": "choice",
+        "choices": [
+            [
+                "left",
+                "Left"
+            ],
+            [
+                "center",
+                "Center"
+            ]
+        ],
+        "default": "left"
+    },
+    {
+        "name": "background_color",
+        "label": "Background color",
+        "type": "color",
+        "default": {
+            "color": "#ffffff",
+            "opacity": 100
+        }
+    },
+    {
+        "name": "padding_top",
+        "label": "Padding top (px)",
+        "type": "number",
+        "default": 64
+    },
+    {
+        "name": "padding_bottom",
+        "label": "Padding bottom (px)",
+        "type": "number",
+        "default": 64
+    },
+    {
+        "name": "button_style",
+        "label": "Button style",
+        "type": "choice",
+        "choices": [
+            [
+                "primary",
+                "Primary"
+            ],
+            [
+                "secondary",
+                "Secondary"
+            ]
+        ],
+        "default": "primary"
+    }
+]

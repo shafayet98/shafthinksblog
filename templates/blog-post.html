@@ -1,0 +1,76 @@
+<!--
+  templateType: blog_post
+  label: Blog Post (ShafThinks)
+  isAvailableForNewContent: true
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+
+{% set words = content.post_body|striptags|wordcount %}
+{% set reading_time = ((words / 200)|round(0, 'ceil'))|int %}
+
+<article class="blog-article content-wrapper">
+  <header class="blog-article__header">
+    <p class="blog-article__kicker">
+      <a href="{{ group.absolute_url }}">← Back to blog</a>
+    </p>
+
+    <h1 class="blog-article__title">{{ content.name }}</h1>
+
+    <div class="blog-article__meta">
+      <span>{{ content.publish_date|datetimeformat('%b %d, %Y') }}</span>
+      <span class="blog-article__dot">•</span>
+      <span>{{ reading_time }} min read</span>
+      {% if content.blog_author %}
+      <span class="blog-article__dot">•</span>
+      <span>By {{ content.blog_author.display_name }}</span>
+      {% endif %}
+    </div>
+
+    {% if content.featured_image %}
+    <figure class="blog-article__image">
+      <img src="{{ content.featured_image }}" alt="{{ content.featured_image_alt_text|default(content.name) }}">
+    </figure>
+    {% endif %}
+  </header>
+
+  <div class="blog-article__content">
+    {{ content.post_body }}
+  </div>
+
+  {% if content.tag_list %}
+  <footer class="blog-article__footer">
+    <div class="blog-article__tags">
+      <strong>Tags:</strong>
+      {% for tag in content.tag_list %}
+      <a class="blog-article__tag" href="{{ blog_tag_url(group.id, tag.slug) }}">{{ tag.name }}</a>
+      {% endfor %}
+    </div>
+  </footer>
+  {% endif %}
+
+  <section class="blog-article__share">
+    <h3>Share</h3>
+
+    {% set share_url = content.absolute_url|urlencode %}
+    {% set share_title = content.name|urlencode %}
+
+    <ul class="share-list">
+      <li><a class="share-btn" target="_blank" rel="noopener"
+          href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url }}">LinkedIn</a></li>
+
+      <li><a class="share-btn" target="_blank" rel="noopener"
+          href="https://twitter.com/intent/tweet?url={{ share_url }}&text={{ share_title }}">X</a></li>
+
+      <li><a class="share-btn" target="_blank" rel="noopener"
+          href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}">Facebook</a></li>
+    </ul>
+  </section>
+
+  <section class="blog-article__related">
+    <h3>Related posts</h3>
+    {% module "related_posts" path="@hubspot/blog_related_posts", label="Related posts" %}
+  </section>
+
+  {% endblock body %}

@@ -1,0 +1,37 @@
+[
+    {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Latest posts"
+    },
+    {
+        "name": "intro",
+        "label": "Intro",
+        "type": "richtext",
+        "default": "<p>Fresh writing from Shaf Thinks.</p>"
+    },
+    {
+        "name": "post_count",
+        "label": "Number of posts",
+        "type": "number",
+        "default": 6
+    },
+    {
+        "name": "show_tags",
+        "label": "Show tags",
+        "type": "boolean",
+        "default": true
+    },
+    {
+        "name": "cta_text",
+        "label": "CTA text",
+        "type": "text",
+        "default": "View all posts"
+    },
+    {
+        "name": "cta_link",
+        "label": "CTA link",
+        "type": "link"
+    }
+]

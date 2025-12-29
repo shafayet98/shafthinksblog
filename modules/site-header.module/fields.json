@@ -1,0 +1,68 @@
+[
+  {
+    "name": "brand_text",
+    "label": "Brand text",
+    "type": "text",
+    "default": "ShafThinks Blog"
+  },
+  {
+    "name": "show_brand",
+    "label": "Show brand",
+    "type": "boolean",
+    "default": true
+  },
+
+  {
+    "name": "link1_text",
+    "label": "Link 1 text",
+    "type": "text",
+    "default": "Home"
+  },
+  {
+    "name": "link1_url",
+    "label": "Link 1 URL",
+    "type": "url"
+  },
+  {
+    "name": "link1_new_tab",
+    "label": "Open link 1 in new tab",
+    "type": "boolean",
+    "default": false
+  },
+
+  {
+    "name": "link2_text",
+    "label": "Link 2 text",
+    "type": "text",
+    "default": "Blog"
+  },
+  {
+    "name": "link2_url",
+    "label": "Link 2 URL",
+    "type": "url"
+  },
+  {
+    "name": "link2_new_tab",
+    "label": "Open link 2 in new tab",
+    "type": "boolean",
+    "default": false
+  },
+
+  {
+    "name": "link3_text",
+    "label": "Link 3 text",
+    "type": "text",
+    "default": "Contact"
+  },
+  {
+    "name": "link3_url",
+    "label": "Link 3 URL",
+    "type": "url"
+  },
+  {
+    "name": "link3_new_tab",
+    "label": "Open link 3 in new tab",
+    "type": "boolean",
+    "default": false
+  }
+]

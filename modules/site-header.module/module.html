@@ -1,0 +1,37 @@
+<header class="site-header" role="banner">
+  <div class="site-header__inner content-wrapper">
+
+    {% if module.show_brand %}
+      <div class="site-header__brand">
+        {{ module.brand_text }}
+      </div>
+    {% endif %}
+
+    <nav class="site-header__nav" aria-label="Main navigation">
+      {% if module.link1_text and module.link1_url and module.link1_url.href %}
+        <a class="site-header__link"
+           href="{{ module.link1_url.href|escape_url }}"
+           {% if module.link1_new_tab %}target="_blank" rel="noopener"{% endif %}>
+          {{ module.link1_text }}
+        </a>
+      {% endif %}
+
+      {% if module.link2_text and module.link2_url and module.link2_url.href %}
+        <a class="site-header__link"
+           href="{{ module.link2_url.href|escape_url }}"
+           {% if module.link2_new_tab %}target="_blank" rel="noopener"{% endif %}>
+          {{ module.link2_text }}
+        </a>
+      {% endif %}
+
+      {% if module.link3_text and module.link3_url and module.link3_url.href %}
+        <a class="site-header__link"
+           href="{{ module.link3_url.href|escape_url }}"
+           {% if module.link3_new_tab %}target="_blank" rel="noopener"{% endif %}>
+          {{ module.link3_text }}
+        </a>
+      {% endif %}
+    </nav>
+
+  </div>
+</header>

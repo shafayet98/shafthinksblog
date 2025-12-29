@@ -1,0 +1,24 @@
+<section class="cta-banner cta-banner--{{ module.style|default('light') }}">
+  <div class="cta-banner__inner">
+    <div class="cta-banner__content">
+      {% if module.heading %}
+        <h3 class="cta-banner__title">{{ module.heading }}</h3>
+      {% endif %}
+
+      {% if module.text %}
+        <div class="cta-banner__text">{{ module.text }}</div>
+      {% endif %}
+    </div>
+
+    {% if module.button_text and module.button_link.url.href %}
+      <a
+        class="cta-banner__btn"
+        href="{{ module.button_link.url.href }}"
+        {% if module.button_link.open_in_new_tab %}target="_blank"{% endif %}
+        {% if module.button_link.no_follow %}rel="nofollow"{% endif %}
+      >
+        {{ module.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</section>

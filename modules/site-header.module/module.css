@@ -1,0 +1,20 @@
+.site-header__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 18px 0;
+}
+
+.site-header__nav{
+  display:flex;
+  gap: 18px;
+}
+
+.site-header__brand{
+  text-decoration:none;
+  padding-left: 60px;
+  font-weight:700;
+}
+.site-header__link{
+  text-decoration:none;
+}

@@ -1,0 +1,36 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: Blog Listing (Custom)
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+
+{% dnd_area "blog_listing"
+  label="Blog listing"
+  class="body-container body-container--blog-listing"
+%}
+
+  {# Header section #}
+  {% dnd_section %}
+    {% dnd_column %}
+      {% dnd_module
+        path="@hubspot/rich_text"
+        html="<h1>Blog</h1><p>Thoughts, tutorials, and builds.</p>"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+  {# Posts listing section (HubSpot handles query + pagination) #}
+  {% dnd_section %}
+    {% dnd_column %}
+      {% dnd_module path="@hubspot/blog_posts_listing" %}
+      {% end_dnd_module %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+
+{% endblock body %}
